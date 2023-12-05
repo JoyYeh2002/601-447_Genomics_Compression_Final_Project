@@ -1,0 +1,323 @@
+
+    <html>
+    <head>
+        <title>File Comparison</title>
+        <style>
+            .container {
+                display: flex;
+            }
+            .file {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+            .file h2 {
+                text-align: center;
+                font-size: 18px;
+            }
+            .file pre {
+                white-space: pre-wrap;
+            }
+            .file .difference {
+                background-color: yellow;
+            }
+            .file-name-box {
+                text-align: center;
+                padding: 5px;
+                background-color: #f0f0f0;
+                border: 1px solid #ccc;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 20px;
+            }
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>File Comparison</h1>
+        <div class="footer">
+            <p>Number of differences: 12</p>
+        </div>
+        <div class="container">
+            <div class="file">
+                <div class="file-name-box">
+                    <h2>O_AT_0702_ORR_S10TRAS033_0402_NES1111J01.mod</h2>
+                </div>
+                <pre>   1: <span class="difference">I</span>~
+   2: { composite
+   3:  { transform
+   4:   { file ./wedge/M20_PrimMission_BSM_L016707_S026469_001024_001024.ht }
+   5:   512.0 -512.0 1.0 0 0 1.0 }
+   6:  { transform
+   7:   { file ./wedge/M20_PrimMission_BSM_L016707_S027492_001024_001024.ht }
+   8:   512.0 -256.0 1.0 0 0 1.0 }
+   9:  { transform
+  10:   { file ./wedge/M20_PrimMission_BSM_L016707_S028515_001024_001024.ht }
+  11:   512.0 0.0 1.0 0 0 1.0 }
+  12:  { transform
+  13:   { file ./wedge/M20_PrimMission_BSM_L016707_S029538_001024_001024.ht }
+  14:   51<span class="difference">2</span>.0 256.0 1.0 0 0 1.0 }
+  15:  { transform
+  16:   { file ./wedge/M20_PrimMission_BSM_L016707_S030561_001024_001024.ht }
+  17:   512.0 512.0 1.0 0 0 1.0 }
+  18:  { transform
+  19:   { file ./wedge/M20_PrimMission_BSM_L016707_S031584_001024_001024.ht }
+  20:   512.0 768.0 1.0 0 0 1.0 }
+  21:  { transform
+  22:   { file ./wedge/M20_PrimMission_BSM_L017730_S026469_001024_001024.ht }
+  23:   256.0 -512.0 1.0 0 0 1.0 }
+  24:  { transform
+  25:   { file ./wedge/M20_PrimMission_BSM_L017730_S027492_001024_001024.ht }
+  26:   <span class="difference">2</span><span class="difference">5</span><span class="difference">6</span>.0 -<span class="difference">2</span><span class="difference">5</span><span class="difference">6</span>.0 1.0 0 0 1.0 }
+  27:  { transform
+  28:   { file ./wedge/M20_PrimMission_BSM_L017730_S028515_001024_001024.ht }
+  29:   <span class="difference">2</span><span class="difference">5</span><span class="difference">6</span><span class="difference">.</span><span class="difference">0</span><span class="difference"> </span><span class="difference">0</span><span class="difference">.</span><span class="difference">0</span><span class="difference"> </span><span class="difference">1</span><span class="difference">.</span><span class="difference">0</span><span class="difference"> </span><span class="difference">0</span><span class="difference"> </span><span class="difference">0</span><span class="difference"> </span><span class="difference">1</span><span class="difference">.</span><span class="difference">0</span><span class="difference"> </span><span class="difference">}</span>
+  30:  { transform
+  31:   { file ./wedge/M20_PrimMission_BSM_L017730_S029538_001024_001024.ht }
+  32:   256.0 256.0 1.0 0 0 1.0 }
+  33:  { transform
+  34:   { file ./wedge/M20_PrimMission_BSM_L017730_S030561_001024_001024.ht }
+  35:   256.0 512.0 1.0 0 0 1.0 }
+  36:  { transform
+  37:   { file ./wedge/M20_PrimMission_BSM_L017730_S031584_001024_001024.ht }
+  38:   256.0 768.0 1.0 0 0 1.0 }
+  39:  { transform
+  40:   { file ./wedge/M20_PrimMission_BSM_L018753_S026469_001024_001024.ht }
+  41:   0.0 -512.0 1.0 0 0 1.0 }
+  42:  { transform
+  43:   { file ./wedge/M20_PrimMission_BSM_L018753_S027492_001024_001024.ht }
+  44:   0.0 -256.0 1.0 0 0 1.0 }
+  45:  { transform
+  46:   { file ./wedge/M20_PrimMission_BSM_L018753_S028515_001024_001024.ht }
+  47:   0.0 0.0 1.0 0 0 1.0 }
+  48:  { transform
+  49:   { file ./wedge/M20_PrimMission_BSM_L018753_S029538_001024_001024.ht }
+  50:   0.0 256.0 1.0 0 0 1.0 }
+  51:  { transform
+  52:   { file ./wedge/M20_PrimMission_BSM_L018753_S030561_001024_001024.ht }
+  53:   0.0 512.0 1.0 0 0 1.0 }
+  54:  { transform
+  55:   { file ./wedge/M20_PrimMission_BSM_L018753_S031584_001024_001024.ht }
+  56:   0.0 768.0 1.0 0 0 1.0 }
+  57:  { transform
+  58:   { file ./wedge/M20_PrimMission_BSM_L019776_S026469_001024_001024.ht }
+  59:   -256.0 -512.0 1.0 0 0 1.0 }
+  60:  { transform
+  61:   { file ./wedge/M20_PrimMission_BSM_L019776_S027492_001024_001024.ht }
+  62:   -256.0 -256.0 1.0 0 0 1.0 }
+  63:  { transform
+  64:   { file ./wedge/M20_PrimMission_BSM_L019776_S028515_001024_001024.ht }
+  65:   -256.0 0.0 1.0 0 0 1.0 }
+  66:  { transform
+  67:   { file ./wedge/M20_PrimMission_BSM_L019776_S029538_001024_001024.ht }
+  68:   -256.0 256.0 1.0 0 0 1.0 }
+  69:  { transform
+  70:   { file ./wedge/M20_PrimMission_BSM_L019776_S030561_001024_001024.ht }
+  71:   -256.0 512.0 1.0 0 0 1.0 }
+  72:  { transform
+  73:   { file ./wedge/M20_PrimMission_BSM_L019776_S031584_001024_001024.ht }
+  74:   -256.0 768.0 1.0 0 0 1.0 }
+  75:  { transform
+  76:   { file ./wedge/M20_PrimMission_BSM_L020799_S026469_001024_001024.ht }
+  77:   -512.0 -512.0 1.0 0 0 1.0 }
+  78:  { transform
+  79:   { file ./wedge/M20_PrimMission_BSM_L020799_S027492_001024_001024.ht }
+  80:   -512.0 -256.0 1.0 0 0 1.0 }
+  81:  { transform
+  82:   { file ./wedge/M20_PrimMission_BSM_L020799_S028515_001024_001024.ht }
+  83:   -512.0 0.0 1.0 0 0 1.0 }
+  84:  { transform
+  85:   { file ./wedge/M20_PrimMission_BSM_L020799_S029538_001024_001024.ht }
+  86:   -512.0 256.0 1.0 0 0 1.0 }
+  87:  { transform
+  88:   { file ./wedge/M20_PrimMission_BSM_L020799_S030561_001024_001024.ht }
+  89:   -512.0 512.0 1.0 0 0 1.0 }
+  90:  { transform
+  91:   { file ./wedge/M20_PrimMission_BSM_L020799_S031584_001024_001024.ht }
+  92:   -512.0 768.0 1.0 0 0 1.0 }
+  93:  { transform
+  94:   { file ./wedge/M20_PrimMission_BSM_L021822_S026469_001024_001024.ht }
+  95:   -768.0 -512.0 1.0 0 0 1.0 }
+  96:  { transform
+  97:   { file ./wedge/M20_PrimMission_BSM_L021822_S027492_001024_001024.ht }
+  98:   -768.0 -256.0 1.0 0 0 1.0 }
+  99:  { transform
+ 100:   { file ./wedge/M20_PrimMission_BSM_L021822_S028515_001024_001024.ht }
+ 101:   -768.0 0.0 1.0 0 0 1.0 }
+ 102:  { transform
+ 103:   { file ./wedge/M20_PrimMission_BSM_L021822_S029538_001024_001024.ht }
+ 104:   -768.0 256.0 1.0 0 0 1.0 }
+ 105:  { transform
+ 106:   { file ./wedge/M20_PrimMission_BSM_L021822_S030561_001024_001024.ht }
+ 107:   -768.0 512.0 1.0 0 0 1.0 }
+ 108:  { transform
+ 109:   { file ./wedge/M20_PrimMission_BSM_L021822_S031584_001024_001024.ht }
+ 110:   -768.0 768.0 1.0 0 0 1.0 }
+ 111:  { transform
+ 112:   { file ./wedge/M20_PrimMission_BSM_L022845_S026469_001024_001024.ht }
+ 113:   -1024.0 -512.0 1.0 0 0 1.0 <span class="difference">1</span><span class="difference">0</span><span class="difference">0</span><span class="difference">,</span><span class="difference"> </span><span class="difference">1</span><span class="difference">0</span><span class="difference">0</span><span class="difference">0</span><span class="difference">,</span><span class="difference">,</span><span class="difference">1</span><span class="difference">2</span><span class="difference">,</span><span class="difference">,</span><span class="difference">3</span><span class="difference">1</span><span class="difference">2</span><span class="difference">,</span><span class="difference">3</span><span class="difference">,</span><span class="difference">1</span><span class="difference">2</span><span class="difference">,</span><span class="difference">3</span><span class="difference">,</span><span class="difference">1</span><span class="difference">2</span><span class="difference">3</span><span class="difference">,</span><span class="difference">1</span><span class="difference">}</span>
+ 114:  { transform
+ 115:   { file ./wedge/M20_PrimMission_BSM_L022845_S027492_001024_001024.ht }
+ 116:   -1024.0 -256.0 1.0 0 0 1.0 }
+ 117:  { transform
+ 118:   { file ./wedge/M20_PrimMission_BSM_L022845_S028515_001024_001024.ht }
+ 119:   -1024.0 0.0 1.0 0 0 1.0 }
+ 120:  { transform
+ 121:   { file ./wedge/M20_PrimMission_BSM_L022845_S029538_001024_001024.ht }
+ 122:   -1024.0 256.0 1.0 0 0 1.0 }
+ 123:  { transform
+ 124:   { file ./wedge/M20_PrimMission_BSM_L022845_S030561_001024_001024.ht }
+ 125:   -1024.0 512.0 1.0 0 0 1.0 }
+ 126:  { transform<span class="difference"> </span><span class="difference">s</span><span class="difference">u</span><span class="difference">c</span><span class="difference">k</span>
+ 127:   { file ./wedge/M20_PrimMission_BSM_L022845_S031584_001024_001024.ht }
+ 128:   -1024.0 768.0 1.0 0 0 1.0 }
+ 129: }
+ 130: 1
+ 131: <span class="difference">2</span>
+ 132: <span class="difference">3</span>
+ 133: <span class="difference">3</span></pre>
+            </div>
+            <div class="file">
+                <div class="file-name-box">
+                    <h2>O_AT_0702_ORR_S10TRAS033_0402_NES1111J02.mod</h2>
+                </div>
+                <pre>   1: <span class="difference">J</span>~
+   2: { composite
+   3:  { transform
+   4:   { file ./wedge/M20_PrimMission_BSM_L016707_S026469_001024_001024.ht }
+   5:   512.0 -512.0 1.0 0 0 1.0 }
+   6:  { transform<span class="difference">i</span><span class="difference">n</span><span class="difference">g</span>
+   7:   { file ./wedge/M20_PrimMission_BSM_L016707_S027492_001024_001024.ht }
+   8:   512.0 -256.0 1.0 0 0 1.0 }
+   9:  { transform
+  10:   { file ./wedge/M20_PrimMission_BSM_L016707_S028515_001024_001024.ht }
+  11:   512.0 0.0 1.0 0 0 1.0 }
+  12:  { transform
+  13:   { file ./wedge/M20_PrimMission_BSM_L016707_S029538_001024_001024.ht }
+  14:   51<span class="difference">3</span>.0 256.0 1.0 0 0 1.0 }
+  15:  { transform
+  16:   { file ./wedge/M20_PrimMission_BSM_L016707_S030561_001024_001024.ht }
+  17:   512.0 512.0 1.0 0 0 1.0 }
+  18:  { transform
+  19:   { file ./wedge/M20_PrimMission_BSM_L016707_S031584_001024_001024.ht }
+  20:   512.0 768.0 1.0 0 0 1.0 }
+  21:  { transform
+  22:   { file ./wedge/M20_PrimMission_BSM_L017730_S026469_001024_001024.ht }
+  23:   256.0 -512.0 1.0 0 0 1.0 }
+  24:  { transform
+  25:   { file ./wedge/M20_PrimMission_BSM_L017730_S027492_001024_001024.ht }
+  26:   <span class="difference">5</span><span class="difference">1</span><span class="difference">2</span>.0 -<span class="difference">5</span><span class="difference">1</span><span class="difference">2</span>.0 1.0 0 0 1.0 }
+  27:  { transform
+  28:   { file ./wedge/M20_PrimMission_BSM_L017730_S028515_001024_001024.ht }
+  29:   <span class="difference">.</span><span class="difference">0</span><span class="difference"> </span><span class="difference">0</span><span class="difference">.</span><span class="difference">0</span><span class="difference"> </span><span class="difference">1</span><span class="difference">.</span><span class="difference">0</span><span class="difference"> </span><span class="difference">0</span><span class="difference"> </span><span class="difference">0</span><span class="difference"> </span><span class="difference">1</span><span class="difference">.</span><span class="difference">0</span><span class="difference"> </span><span class="difference">}</span>
+  30:  { transform
+  31:   { file ./wedge/M20_PrimMission_BSM_L017730_S029538_001024_001024.ht }
+  32:   256.0 256.0 1.0 0 0 1.0 }
+  33:  { transform
+  34:   { file ./wedge/M20_PrimMission_BSM_L017730_S030561_001024_001024.ht }
+  35:   256.0 512.0 1.0 0 0 1.0 }
+  36:  { transform
+  37:   { file ./wedge/M20_PrimMission_BSM_L017730_S031584_001024_001024.ht }
+  38:   256.0 768.0 1.0 0 0 1.0 }
+  39:  { transform
+  40:   { file ./wedge/M20_PrimMission_BSM_L018753_S026469_001024_001024.ht }
+  41:   0.0 -512.0 1.0 0 0 1.0 }
+  42:  { transform
+  43:   { file ./wedge/M20_PrimMission_BSM_L018753_S027492_001024_001024.ht }
+  44:   0.0 -256.0 1.0 0 0 1.0 }
+  45:  { transform
+  46:   { file ./wedge/M20_PrimMission_BSM_L018753_S028515_001024_001024.ht }
+  47:   0.0 0.0 1.0 0 0 1.0 }
+  48:  { transform
+  49:   { file ./wedge/M20_PrimMission_BSM_L018753_S029538_001024_001024.ht }
+  50:   0.0 256.0 1.0 0 0 1.0 }
+  51:  { transform
+  52:   { file ./wedge/M20_PrimMission_BSM_L018753_S030561_001024_001024.ht }
+  53:   0.0 512.0 1.0 0 0 1.0 }
+  54:  { transform
+  55:   { file ./wedge/M20_PrimMission_BSM_L018753_S031584_001024_001024.ht }
+  56:   0.0 768.0 1.0 0 0 1.0 }
+  57:  { transform
+  58:   { file ./wedge/M20_PrimMission_BSM_L019776_S026469_001024_001024.ht }
+  59:   -256.0 -512.0 1.0 0 0 1.0 }
+  60:  { transform
+  61:   { file ./wedge/M20_PrimMission_BSM_L019776_S027492_001024_001024.ht }
+  62:   -256.0 -256.0 1.0 0 0 1.0 }
+  63:  { transform
+  64:   { file ./wedge/M20_PrimMission_BSM_L019776_S028515_001024_001024.ht }
+  65:   -256.0 0.0 1.0 0 0 1.0 }
+  66:  { transform
+  67:   { file ./wedge/M20_PrimMission_BSM_L019776_S029538_001024_001024.ht }
+  68:   -256.0 256.0 1.0 0 0 1.0 }
+  69:  { transform
+  70:   { file ./wedge/M20_PrimMission_BSM_L019776_S030561_001024_001024.ht }
+  71:   -256.0 512.0 1.0 0 0 1.0 }
+  72:  { transform
+  73:   { file ./wedge/M20_PrimMission_BSM_L019776_S031584_001024_001024.ht }
+  74:   -256.0 768.0 1.0 0 0 1.0 }
+  75:  { transform
+  76:   { file ./wedge/M20_PrimMission_BSM_L020799_S026469_001024_001024.ht }
+  77:   -512.0 -512.0 1.0 0 0 1.0 }
+  78:  { transform
+  79:   { file ./wedge/M20_PrimMission_BSM_L020799_S027492_001024_001024.ht }
+  80:   -512.0 -256.0 1.0 0 0 1.0 }
+  81:  { transform
+  82:   { file ./wedge/M20_PrimMission_BSM_L020799_S028515_001024_001024.ht }
+  83:   -512.0 0.0 1.0 0 0 1.0 }
+  84:  { transform
+  85:   { file ./wedge/M20_PrimMission_BSM_L020799_S029538_001024_001024.ht }
+  86:   -512.0 256.0 1.0 0 0 1.0 }
+  87:  { transform
+  88:   { file ./wedge/M20_PrimMission_BSM_L020799_S030561_001024_001024.ht }
+  89:   -512.0 512.0 1.0 0 0 1.0 }
+  90:  { transform
+  91:   { file ./wedge/M20_PrimMission_BSM_L020799_S031584_001024_001024.ht }
+  92:   -512.0 768.0 1.0 0 0 1.0 }
+  93:  { transform
+  94:   { file ./wedge/M20_PrimMission_BSM_L021822_S026469_001024_001024.ht }
+  95:   -768.0 -512.0 1.0 0 0 1.0 }
+  96:  { transform
+  97:   { file ./wedge/M20_PrimMission_BSM_L021822_S027492_001024_001024.ht }
+  98:   -768.0 -256.0 1.0 0 0 1.0 }
+  99:  { transform
+ 100:   { file ./wedge/M20_PrimMission_BSM_L021822_S028515_001024_001024.ht }
+ 101:   -768.0 0.0 1.0 0 0 1.0 }
+ 102:  { transform<span class="difference">i</span><span class="difference">n</span><span class="difference">g</span>
+ 103:   { file ./wedge/M20_PrimMission_BSM_L021822_S029538_001024_001024.ht }
+ 104:   -768.0 256.0 1.0 0 0 1.0 }
+ 105:  { transform
+ 106:   { file ./wedge/M20_PrimMission_BSM_L021822_S030561_001024_001024.ht }
+ 107:   -768.0 512.0 1.0 0 0 1.0 }
+ 108:  { transform
+ 109:   { file ./wedge/M20_PrimMission_BSM_L021822_S031584_001024_001024.ht }
+ 110:   -768.0 768.0 1.0 0 0 1.0 }
+ 111:  { transform
+ 112:   { file ./wedge/M20_PrimMission_BSM_L022845_S026469_001024_001024.ht }
+ 113:   -1024.0 -512.0 1.0 0 0 1.0 <span class="difference">}</span>
+ 114:  { transform
+ 115:   { file ./wedge/M20_PrimMission_BSM_L022845_S027492_001024_001024.ht }
+ 116:   -1024.0 -256.0 1.0 0 0 1.0 }
+ 117:  { transform
+ 118:   { file ./wedge/M20_PrimMission_BSM_L022845_S028515_001024_001024.ht }
+ 119:   -1024.0 0.0 1.0 0 0 1.0 }
+ 120:  { transform
+ 121:   { file ./wedge/M20_PrimMission_BSM_L022845_S029538_001024_001024.ht }
+ 122:   -1024.0 256.0 1.0 0 0 1.0 }
+ 123:  { transform<span class="difference"> </span><span class="difference">n</span><span class="difference">i</span><span class="difference">c</span><span class="difference">e</span>
+ 124:   { file ./wedge/M20_PrimMission_BSM_L022845_S030561_001024_001024.ht }
+ 125:   -1024.0 512.0 1.0 0 0 1.0 }
+ 126:  { transform
+ 127:   { file ./wedge/M20_PrimMission_BSM_L022845_S031584_001024_001024.ht }
+ 128:   -1024.0 768.0 1.0 0 0 1.0 }
+ 129: }
+ 130: 1
+ 131: <span class="difference">1</span></pre>
+            </div>
+        </div>
+        
+    </body>
+    </html>
+    
