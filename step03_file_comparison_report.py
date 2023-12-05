@@ -1,18 +1,11 @@
-# User inputs both file's complete path into the main function variables, as well as the name of the mod 
-# files, and it will save a html code to your current directory. main() is called at the end of the file.
+# EN.601.447 Computational Genomics: Sequences
+# Joy Yeh
+# Step03: Implement the HTML report from Pickle file
+# Updated 12/05/2023
 
-# Import pickle
 import pickle
 
-
-def read_mod_file(file_path):
-    lines = []
-    with open(file_path, 'r') as file:
-        for line in file:
-            lines.append(line.rstrip('\n'))
-    return lines
-
-def mod_comparison(file1_array, file2_array):
+def file_comparison(file1_array, file2_array):
     index_to_highlight = []
     shorter = min(len(file1_array), len(file2_array))
     longer = len(file2_array) if shorter == len(file1_array) else len(file1_array)
@@ -26,7 +19,7 @@ def mod_comparison(file1_array, file2_array):
         
     return index_to_highlight
     
-def generate_html_comparison(file1_name, file1_lines, file2_name, file2_lines, differences):
+def generate_report(file1_name, file1_lines, file2_name, file2_lines, differences):
     lines_with_highlight_file1 = add_line_numbers_with_highlight(file1_lines, file2_lines, differences)
     lines_with_highlight_file2 = add_line_numbers_with_highlight(file2_lines, file1_lines, differences)
 
@@ -140,6 +133,33 @@ def add_line_numbers_with_highlight(lines1, lines2, differences):
     return '\n'.join(lines_with_highlight)
 
 
+def generate_html_report_from_pickle(data_path, pickle_path, output_html_name):
+    # Obtain the contents char array
+    with open(pickle_path, 'rb') as f:
+        t_info = pickle.load(f)
+        t_content = pickle.load(f)
+        r_info = pickle.load(f)
+        r_content = pickle.load(f)
+
+    differences = file_comparison(t_content, r_content)
+    html_code = generate_report(t_info, t_content, r_info, r_content, differences)
+    
+    with open(data_path + output_html_name, 'w') as file:
+        file.write(html_code)
+
+    print(f'File "{output_html_name}" created successfully.')
+
+
+def generate_html_report_from_vars(data_path, t_info, t_content, r_info, r_content, output_html_name):
+    differences = file_comparison(t_content, r_content)
+    html_code = generate_report(t_info, t_content, r_info, r_content, differences)
+    
+    with open(data_path + output_html_name, 'w') as file:
+        file.write(html_code)
+
+    print(f'File "{output_html_name}" created successfully.')
+
+
 if __name__ == "__main__":
     # Load the character array from the pickle file
     # Specify the path to target FASTA file
@@ -148,7 +168,6 @@ if __name__ == "__main__":
     AAA_ref_file = data_path + "chrY.fna"
     AAA_pickle_file_path = data_path + "pair.pickle"
 
-
     # Obtain the contents char array
     with open(AAA_pickle_file_path, 'rb') as pickle_file:
         t_info = pickle.load(pickle_file)
@@ -156,21 +175,12 @@ if __name__ == "__main__":
         r_info = pickle.load(pickle_file)
         r_content = pickle.load(pickle_file)
         
-        
     data_path = 'C:/Users/joy20/Folder/FA_2023/601-447_Genomics/601-447_Computational_Genomics/Final_Project/data/'
     target_file = "target_sample.txt"
     ref_file = "ref_sample.txt"
   
-    # file1_lines = read_mod_file(data_path + target_file)
-    # file2_lines = read_mod_file(data_path + ref_file)
+    differences = file_comparison(t_content, r_content)
+    html_code = generate_html_report(t_info, t_content, r_info, r_content, differences)
     
-    # differences = mod_comparison(file1_lines, file2_lines)
-    
-    # html_code = generate_html_comparison(target_file, file1_lines, ref_file, file2_lines, differences)
- 
-    differences = mod_comparison(t_content, r_content)
-    html_code = generate_html_comparison(t_info, t_content, r_info, r_content, differences)
-    
-    
-    with open(data_path + 'FASTA_sample_comparison_report.html', 'w') as file:
+    with open(data_path + 'FASTA_sample_comparison_report02.html', 'w') as file:
         file.write(html_code)

@@ -20,14 +20,12 @@ def load_fna_file_content(file_name, line_idx_start, line_idx_end):
         lines = f.readlines()
     info = lines[0]
     content_subset = lines[line_idx_start:line_idx_end]
-    f.close();
+    f.close()
 
     return info, content_subset
 
-
 target_info, target_subset = load_fna_file_content(target_file, 126, 326)
 ref_info, ref_subset = load_fna_file_content(ref_file, 126, 326)
-
 
 # Specify the path to your pickle file
 with open(pickle_file_path, 'wb') as pickle_file:
