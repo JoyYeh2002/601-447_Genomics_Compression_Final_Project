@@ -26,7 +26,7 @@ const int max_arr_num_bit_shift = max_arr_num_bit>>1; //half
 const int max_arr_num = 1<<max_arr_num_bit; // maximum length of hash table
 const int min_size = 1<<20; //minimum length for other arrays 
 
-const int sub_str_num = 20; //hash function; the modulus s
+const int sub_str_num = 17; //hash function; the modulus s
 
 struct POSITION_RANGE { //an interval
 	int begin, length;//
@@ -48,7 +48,7 @@ int *point; // an array of entries
 char *dismatched_str; //mismatched subsequence
 
 inline void initial() { // malloc momories
-	meta_data = new char[1024];
+	meta_data = new char[2048];
 	pos_vec = new POSITION_RANGE[min_size];
 	line_break_vec = new int[1<<23];
 	n_vec = new  POSITION_RANGE[min_size];
@@ -94,7 +94,7 @@ int agctIndex(char ch) { //encoding rule
 
 void readRefFile(char *refFile) { // processing reference file
 	int _ref_seq_len = 0;
-	char ch[1024];
+	char ch[2048];
 	FILE *fp = fopen(refFile, "r");
 	if (NULL == fp) {
 		printf("fail to open file %s\n", refFile);
@@ -104,7 +104,7 @@ void readRefFile(char *refFile) { // processing reference file
 	char temp_ch;
 	
 	// fscanf(fp, "%s", ch);//meta_data
-	fgets(ch, 1024, fp);
+	fgets(ch, 2048, fp);
 	while (fscanf(fp, "%s", ch) != EOF) {
 		temp_len = strlen(ch);
 		for (int i = 0; i < temp_len; i++) {
@@ -129,7 +129,7 @@ void readTarFile(char *tarFile) {// processing target file; recording all auxili
 		printf("fail to open file %s\n", tarFile);
 		return;
 	}
-	char ch[1024], chr;
+	char ch[2048], chr;
 	
 	int _tar_seq_len = 0;
 	other_char_len = 0, n_vec_len = 0;
@@ -139,7 +139,7 @@ void readTarFile(char *tarFile) {// processing target file; recording all auxili
 	bool flag = true, n_flag = false; // first is upper case //first is not N
 
 	// fscanf(fp, "%s", meta_data); //meta_data
-	fgets(meta_data, 1024, fp);
+	fgets(meta_data, 2048, fp);
 
 	while (fscanf(fp, "%s", ch) != EOF) {
 		ch_len = strlen(ch);
@@ -234,29 +234,38 @@ void writeRunLengthCoding(FILE *fp, int vec_len, int *vec) { // run-length codin
 	}
 	int code_len = code.size();
 	fprintf(fp, "%d", code_len);
+	fflush(fp);
 
 	for (int i = 0; i < code_len; i++) {
 		fprintf(fp, " %d", code[i]);
+		fflush(fp);
 	}
 	fprintf(fp, "\n");
+	fflush(fp);
 }
 
 void saveOtherData(FILE *fp) { // write auxiliary information to file
 	fprintf(fp, "%s\n", meta_data);//identifier
+	fflush(fp);
 	//------------------------
 	writeRunLengthCoding(fp, line_break_len, line_break_vec);//length of shor seuqences
 	//------------------------
 	fprintf(fp, "%d", pos_vec_len); //intervals of lower-case letters
+	fflush(fp);
 	for (int i = 0; i < pos_vec_len; i++) {
 		fprintf(fp, " %d %d", pos_vec[i].begin, pos_vec[i].length);
+		fflush(fp);
 	}
 	//------------------------
 	fprintf(fp, "\n%d", n_vec_len); //intervals of the letter 'N'
+	fflush(fp);
 	for (int i = 0; i < n_vec_len; i++) {
 		fprintf(fp, " %d %d", n_vec[i].begin, n_vec[i].length);
+		fflush(fp);
 	}
 	//------------------------
 	fprintf(fp, "\n%d", other_char_len); //other characters
+	fflush(fp);
 	if (other_char_len > 0) {
 		int flag[30];
 		for (int i = 0; i < 26; i++) {
@@ -266,6 +275,7 @@ void saveOtherData(FILE *fp) { // write auxiliary information to file
 	
 		for (int i = 0; i < other_char_len; i++) {
 			fprintf(fp, " %d", other_char_vec[i].pos);
+			fflush(fp);
 
 			int temp = other_char_vec[i].ch;
 			if (flag[temp] == -1) {
@@ -277,14 +287,18 @@ void saveOtherData(FILE *fp) { // write auxiliary information to file
 		//save other char information
 		int size = arr.size();
 		fprintf(fp, " %d", size);
+		fflush(fp);
 		for (int i = 0; i < size; i++) {
 			fprintf(fp, " %d", arr[i]);
+			fflush(fp);
 		}
 
 		if (size < 10) {
 			fprintf(fp, " ");
+			fflush(fp);
 			for (int i = 0; i < other_char_len; i++) {
 				fprintf(fp, "%d", flag[other_char_vec[i].ch]);
+				fflush(fp);
 			}
 		} else {
 			int bit_num = ceil(log(size)/log(2));
@@ -298,10 +312,12 @@ void saveOtherData(FILE *fp) { // write auxiliary information to file
 					v += flag[other_char_vec[i].ch];
 				}
 				fprintf(fp, " %u", v);
+				fflush(fp);
 			}
 		}
 	}
 	fprintf(fp, "\n");
+	fflush(fp);
 }
 
 void preProcessRef() { // construction of hash table
@@ -379,6 +395,7 @@ void searchMatch(char *refFile) { // greedy matching
 				if (dis_str_len > 0) {
 					dismatched_str[dis_str_len] = '\0';
 					fprintf(fp, "%s\n", dismatched_str);
+					fflush(fp);
 					dis_str_len = 0;
 				}
 				//then print match substring
@@ -404,6 +421,7 @@ void searchMatch(char *refFile) { // greedy matching
 	if (dis_str_len > 0) {
 		dismatched_str[dis_str_len] = '\0';
 		fprintf(fp, "%s\n", dismatched_str);
+		fflush(fp);
 	}
 	fclose(fp);
 	// gettimeofday(&end,NULL);
@@ -425,7 +443,7 @@ void compressFile(char *refFile, char *tarFile) {
 
 	sprintf(res, "%s_ref_%s", tarFile, refFile);
 	compressFile(refFile, tarFile, res);
-	sprintf(cmd, "./7za a %s.7z %s -m0=PPMd", res, res);
+	sprintf(cmd, "./7zz a %s.7z %s -m0=PPMd", res, res);
 	system(cmd);
 	sprintf(cmd, "rm %s", res);
 	system(cmd);
@@ -454,7 +472,7 @@ void compressGenome(char *refFold, char *tarFold, vector<string> &chr_name_list)
 		compressFile(ref, tar, res);
 	}
 	
-	sprintf(cmd, "./7za a %s.7z %s -m0=PPMd", temp, temp);
+	sprintf(cmd, "./7zz a %s.7z %s -m0=PPMd", temp, temp);
 	system(cmd);
 
 	sprintf(cmd, "rm -r %s", temp);
@@ -464,9 +482,9 @@ void compressGenome(char *refFold, char *tarFold, vector<string> &chr_name_list)
 }
 
 int compressSet(char *ref_fold, vector<string> &fold_list, vector<string> &chr_name_list) {//hirgc refFold tarFold
-	char ref[1024], tar[1024], res[1024];
-	char cmd[1024]; 
-	char temp[1024];
+	char ref[2048], tar[2048], res[2048];
+	char cmd[2048]; 
+	char temp[2048];
 	
 	int fold_size = fold_list.size();
 
@@ -505,7 +523,7 @@ int compressSet(char *ref_fold, vector<string> &fold_list, vector<string> &chr_n
 	for (int ti = 0; ti < fold_size; ti++) {
 		sprintf(temp, "%s_ref_%s", fold_list[ti].c_str(), ref_fold);
 
-		sprintf(cmd, "./7za a %s.7z %s -m0=PPMd", temp, temp);
+		sprintf(cmd, "./7zz a %s.7z %s -m0=PPMd", temp, temp);
 		system(cmd);
 
 		sprintf(cmd, "rm -r %s", temp);
@@ -526,7 +544,7 @@ bool getList(char *list_file, vector<string> &name_list) {
 		printf("%s open fail!\n", list_file);
 		return false;
 	}
-	char str[1024];
+	char str[2048];
 	while (fscanf(fp, "%s", str) != EOF) {
 		name_list.push_back(string(str));
 	}
